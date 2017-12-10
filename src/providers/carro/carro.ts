@@ -1,6 +1,6 @@
 import 'rxjs/Rx';
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http,RequestOptions,Headers} from '@angular/http';
 
 /*
   Generated class for the CarroProvider provider.
@@ -10,9 +10,13 @@ import {Http} from '@angular/http';
 */
 @Injectable()
 export class CarroProvider {
-  urlService: "https://aluracar.herokuapp.com/";
+
+  urlService: string;
+
   constructor(public http: Http) {
-    console.log('Hello CarroProvider Provider');
+    this.http = http;
+    this.urlService = "https://aluracar.herokuapp.com/";
+   
   }
 
   getListaCarros(){
@@ -22,9 +26,10 @@ export class CarroProvider {
   }
 
   salvarPedido(pedido){
-    return this.http.get(this.urlService + "salvarPedido")
-    .map(res => res.json())
-    .toPromise();
+    let body = JSON.stringify(pedido),
+    headers = new Headers({'Content-Type': 'application/json'}),
+    options = new RequestOptions({headers: headers});
+return this.http.post(this.urlService+"salvarPedido", body, options).toPromise();
   }
 
 }

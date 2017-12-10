@@ -15,8 +15,8 @@ export class HomePage {
   constructor(public navCtrl: NavController,public service: CarroProvider) {
     
     service.getListaCarros().then(data => this.listaCarros = data);
-    
     /*
+     this.listaCarros = [];
      this.listaCarros.push({"nome":"BMW 120I","preco":120000});
      this.listaCarros.push({"nome":"ONIX 1.6","preco":46000});
      this.listaCarros.push({"nome":"Fiesta 2.0","preco":36000});
@@ -40,7 +40,6 @@ export class HomePage {
   dataAtualFormatada(){
     let data = new Date();
     let dia = data.getDate().toString();
-    console.log(dia)
     if (dia.toString().length == 1)
       dia = "0"+dia;
     let mes = data.getMonth()+1+"";
