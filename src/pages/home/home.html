@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar class="ba bar-positive">
+      <ion-title id="title">Alura Car</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content>
+  <ion-list>
+      <ion-item *ngFor="let carro of listaCarros"  (click)="openPage(carro)">{{carro.nome}}</ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <div id="footer">{{endereco}} <br>  {{data}}</div>
+    </ion-toolbar>
+</ion-footer>

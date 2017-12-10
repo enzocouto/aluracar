@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <button (click)= 'goBack()'><ion-icon name="arrow-back" (click)='goBack()'></ion-icon></button>
+    <ion-title>Alura Car</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-card>
+        <ion-card-header class="item item-divider">
+           <h2> {{carro.nome}} </h2>
+           <h3>R{{carro.preco | currency}}</h3>
+        </ion-card-header>
+        <ion-card-content class="item item-text-wrap"><br>
+          <ion-list>         
+                <ion-item>
+                  <ion-label stacked>Nome Completo</ion-label>
+                  <ion-input type="text" [(ngModel)]="pedido.nome"></ion-input>
+                </ion-item>
+          </ion-list>
+          <ion-list>         
+              <ion-item>
+                <ion-label stacked>Endereço</ion-label>
+                <ion-input type="text"  [(ngModel)]="pedido.endereco"></ion-input>
+              </ion-item>
+        </ion-list>
+        <ion-list>         
+            <ion-item>
+              <ion-label stacked>Email</ion-label>
+              <ion-input type="text"  [(ngModel)]="pedido.email"></ion-input>
+            </ion-item>
+      </ion-list>
+        </ion-card-content>
+        <ion-card-header class="item item-divider">
+           
+         </ion-card-header>
+      </ion-card>
+      <br><br>
+      <button ion-button full (click)= "finalizar(carro.nome)">Finalizar Pedido</button>
+</ion-content>
