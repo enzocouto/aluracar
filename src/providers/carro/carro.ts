@@ -26,10 +26,16 @@ export class CarroProvider {
   }
 
   salvarPedido(pedido){
+  /*
     let body = JSON.stringify(pedido),
     headers = new Headers({'Content-Type': 'application/json'}),
     options = new RequestOptions({headers: headers});
-return this.http.post(this.urlService+"salvarPedido", body, options).toPromise();
+    return this.http.post(this.urlService="salvarPedido", body, options).toPromise();
+*/  
+
+    return this.http.get(this.urlService+"salvarpedido",pedido)
+    .map(res => res.json())
+    .toPromise();
   }
 
 }

@@ -35,7 +35,29 @@ export class FinalizaPedidoPage {
       }
     }
 
+
+    /*
+    this.service.salvarPedido(pedidoFinalizado).subscribe(
+      data => {
+          console.log(data);
+          let alert = this.alertCtrl.create({
+            title: 'Parabéns!',
+            subTitle: 'O pedido do seu '+nome+" foi finalizado com sucesso",
+            buttons: ['OK']
+          });
+          alert.present();
+
+      },
+      err => {
+          console.log(err);
+      },
+      () => console.log('Movie Search Complete')
+  );
+  */
+
+  
     this.service.salvarPedido(pedidoFinalizado).then(data => {
+      console.log("dados de retorno:"+data);
       let alert = this.alertCtrl.create({
         title: 'Parabéns!',
         subTitle: 'O pedido do seu '+nome+" foi finalizado com sucesso",
